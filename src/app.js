@@ -5,7 +5,7 @@ import clientsRouter from './resources/clients/client.router.js';
 import orderRouter from './resources/Orders/orders.router.js';
 
 const app = express();
-const swaggerDocument = YAML.load('C:\\Users\\denis\\Desktop\\basic-nodejs-mitso11-task2-express-rest-service\\doc\\api.yaml');
+const swaggerDocument = YAML.load('C:\\Student\\nodejs\\lab4\\basic-nodejs-mitso\\doc\\api.yaml');
 
 app.use(express.json());
 
