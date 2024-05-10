@@ -1,10 +1,15 @@
 import express from 'express';
-
-import userRouter from './resources/users/user.router.js';
+import swaggerUI from 'swagger-ui-express';
+import YAML from 'yamljs';
+import clientsRouter from './resources/clients/client.router.js';
+import orderRouter from './resources/Orders/orders.router.js';
 
 const app = express();
+const swaggerDocument = YAML.load('C:\\Users\\denis\\Desktop\\basic-nodejs-mitso11-task2-express-rest-service\\doc\\api.yaml');
 
 app.use(express.json());
+
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.use('/', (req, res, next) => {
   if (req.originalUrl === '/') {
@@ -14,6 +19,7 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-app.use('/users', userRouter);
+app.use('/clients', clientsRouter);
+app.use('/Orders', orderRouter);
 
 export default app;
