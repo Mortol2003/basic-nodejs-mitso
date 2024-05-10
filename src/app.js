@@ -3,6 +3,7 @@ import swaggerUI from 'swagger-ui-express';
 import YAML from 'yamljs';
 import clientsRouter from './resources/clients/client.router.js';
 import orderRouter from './resources/Orders/orders.router.js';
+import ProductsRouter from './resources/Products/product.router.js';
 
 const app = express();
 const swaggerDocument = YAML.load('C:\\Student\\nodejs\\lab4\\basic-nodejs-mitso\\doc\\api.yaml');
@@ -21,5 +22,6 @@ app.use('/', (req, res, next) => {
 
 app.use('/clients', clientsRouter);
 app.use('/Orders', orderRouter);
+app.use('/products',ProductsRouter)
 
 export default app;
